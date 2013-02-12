@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.killprocess</string>
+	<key>connections</key>
+	<dict>
+		<key>0C384C5D-82BD-4922-9070-62C908C6DB79</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>59578934-A948-4C93-A584-22E9585B5010</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>37E8851F-BBF9-4142-94CD-37D42F555148</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>89E3A395-BC0E-424B-939D-5C130EDCC6A6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>57E1438D-2557-4D35-837F-AD7F2A2F5223</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>kill -9 process '{query}'</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0C384C5D-82BD-4922-9070-62C908C6DB79</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>kill -HUP process '{query}'</string>
+			</dict>
+		</array>
+		<key>57E1438D-2557-4D35-837F-AD7F2A2F5223</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AB0C0D0D-8690-49DA-98C8-1AD6AE182D1E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>89E3A395-BC0E-424B-939D-5C130EDCC6A6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A0285D9E-6A9B-47A8-B114-1BE040A8E1DB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Kill a named process</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Kill Process</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby kill.rb {query} -HUP</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0C384C5D-82BD-4922-9070-62C908C6DB79</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby kill.rb {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>89E3A395-BC0E-424B-939D-5C130EDCC6A6</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>6</integer>
+				<key>keyword</key>
+				<string>kill</string>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>processes = `ps ax | grep -i "{query}"`
+
+puts '&lt;?xml version="1.0"?&gt;'
+puts '&lt;items&gt;'
+
+processes.each_line do |process|
+	pid = process[0..4].strip
+	owner = process[6..10].strip
+	cmd = process[27..-1].strip
+	short_cmd = cmd
+	if short_cmd.length &gt; 35
+		short_cmd = "...#{short_cmd[-35..-1]}"
+	end
+	if owner == '??'
+		puts "  &lt;item uid=\"kill {query}\" arg=\"#{pid}\"&gt;"
+		puts "    &lt;title&gt;#{short_cmd}&lt;/title&gt;"
+		puts "    &lt;subtitle&gt;Kill process '#{cmd}'&lt;/subtitle&gt;"
+		puts "    &lt;icon&gt;icon.png&lt;/icon&gt;"
+		puts "    &lt;valid&gt;yes&lt;/valid&gt;"
+		puts "  &lt;/item&gt;"
+	end
+end
+
+puts '&lt;/items&gt;'
+</string>
+				<key>subtext</key>
+				<string>Kill one or more named processes</string>
+				<key>title</key>
+				<string>Kill process(es)</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>37E8851F-BBF9-4142-94CD-37D42F555148</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Process '{query}' has been killed</string>
+				<key>title</key>
+				<string>Killed -9 process</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>AB0C0D0D-8690-49DA-98C8-1AD6AE182D1E</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby kill.rb {query} -9</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>57E1438D-2557-4D35-837F-AD7F2A2F5223</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Process '{query}' has been killed</string>
+				<key>title</key>
+				<string>Killed process</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A0285D9E-6A9B-47A8-B114-1BE040A8E1DB</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Process '{query}' has been killed</string>
+				<key>title</key>
+				<string>Killed -HUP process</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>59578934-A948-4C93-A584-22E9585B5010</string>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>0C384C5D-82BD-4922-9070-62C908C6DB79</key>
+		<dict>
+			<key>ypos</key>
+			<real>330</real>
+		</dict>
+		<key>37E8851F-BBF9-4142-94CD-37D42F555148</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>57E1438D-2557-4D35-837F-AD7F2A2F5223</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>59578934-A948-4C93-A584-22E9585B5010</key>
+		<dict>
+			<key>ypos</key>
+			<real>330</real>
+		</dict>
+		<key>89E3A395-BC0E-424B-939D-5C130EDCC6A6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>A0285D9E-6A9B-47A8-B114-1BE040A8E1DB</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>AB0C0D0D-8690-49DA-98C8-1AD6AE182D1E</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

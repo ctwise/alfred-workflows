@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.recentdocs</string>
+	<key>connections</key>
+	<dict>
+		<key>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A79237FA-710F-48A8-80A7-AF38CE03B539</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Reveal in Finder</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>View recently accessed documents</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Recent Documents</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>recent</string>
+				<key>runningsubtext</key>
+				<string>Gathering documents...</string>
+				<key>script</key>
+				<string>ruby get_recent_docs.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Find Recent Documents</string>
+				<key>title</key>
+				<string>View Recent Documents</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict/>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>A79237FA-710F-48A8-80A7-AF38CE03B539</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+    try
+  		tell application "Finder"
+    			set appname to name of application file id "com.cocoatech.PathFinder"
+  		end tell
+		tell application "Path Finder"			activate
+			select q		end tell
+	on error err_msg number err_num
+		tell application "Finder"
+ 			reveal POSIX file q as text
+			activate
+		end tell
+	end try
+end alfred_script</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Based on the workflows by Clinton Strong and David Ferguson.
+
+You must install the ruby sqlite3 gem before this will work:
+
+	sudo gem install sqlite3</string>
+	<key>uidata</key>
+	<dict>
+		<key>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>A79237FA-710F-48A8-80A7-AF38CE03B539</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

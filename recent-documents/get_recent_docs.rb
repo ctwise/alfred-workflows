@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sqlite3'
 load "alfred_feedback.rb"
 
-query = ARGV[0].strip
+query = ARGV[0].strip.downcase
 
 output = `osascript get_recent_documents.applescript`
 
@@ -22,7 +22,7 @@ end
 feedback = Feedback.new
 
 merge.each do |entry|
-	if query.length == 0 || entry[1].include?(query)
+	if query.length == 0 || entry[1].downcase.include?(query)
 		feedback.add_item({:title => entry[1], :subtitle => entry[0], :arg => entry[0], :icon => {:type => "fileicon", :name => entry[0]}})
 	end
 end

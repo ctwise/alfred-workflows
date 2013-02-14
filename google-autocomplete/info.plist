@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.googleautocomplete</string>
+	<key>connections</key>
+	<dict>
+		<key>BFE26583-B0A0-4CDE-92EF-0007B3616B63</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2B231C7B-F9A8-4A27-9D30-298658FEB596</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7E5093A2-5772-479D-8496-DE8E91BBCE5B</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Open in Google Chrome</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Provide Google Autocomplete Suggestions</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Google Autocomplete</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string>com.google.Chrome</string>
+				<key>plusspaces</key>
+				<true/>
+				<key>url</key>
+				<string>http://www.google.com/webhp?q={query}#hl=en&amp;safe=off&amp;tbo=d&amp;output=search&amp;sclient=psy-ab&amp;q={query}&amp;oq={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>7E5093A2-5772-479D-8496-DE8E91BBCE5B</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>g</string>
+				<key>runningsubtext</key>
+				<string>Loading suggestions...</string>
+				<key>script</key>
+				<string>ruby main.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Search Google with Suggestions</string>
+				<key>title</key>
+				<string>Search Google</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>BFE26583-B0A0-4CDE-92EF-0007B3616B63</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<true/>
+				<key>url</key>
+				<string>http://www.google.com/webhp?q={query}#hl=en&amp;safe=off&amp;tbo=d&amp;output=search&amp;sclient=psy-ab&amp;q={query}&amp;oq={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>2B231C7B-F9A8-4A27-9D30-298658FEB596</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Based on David Ferguson's workflow of the same name.</string>
+	<key>uidata</key>
+	<dict>
+		<key>2B231C7B-F9A8-4A27-9D30-298658FEB596</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>7E5093A2-5772-479D-8496-DE8E91BBCE5B</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>BFE26583-B0A0-4CDE-92EF-0007B3616B63</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

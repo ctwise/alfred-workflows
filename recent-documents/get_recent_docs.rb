@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'sqlite3'
 load "alfred_feedback.rb"
 
 query = ARGV[0].strip.downcase
@@ -12,11 +11,12 @@ output.split("\n").each_slice(2) do |lines|
 	merge[lines[1]] = lines[0]
 end
 
-db = SQLite3::Database.new(File.expand_path("~/Library/Application Support/Alfred 2/Databases/knowledge.alfdb"))
-rows = db.execute(("select path from recentdocs order by ts desc"))
+db_results = `php sql.php "#{File.expand_path('~/Library/Application Support/Alfred 2/Databases/knowledge.alfdb')}"`
+
+rows = db_results.strip.split(/\n/)
 
 rows.each do |row|
-	merge[row[0]] = File.basename(row[0])
+	merge[row] = File.basename(row)
 end
 
 feedback = Feedback.new

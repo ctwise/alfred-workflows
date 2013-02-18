@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.characterpalette</string>
+	<key>connections</key>
+	<dict>
+		<key>8E1E3515-CD40-4E65-8D08-90D8C8F39F8A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BCF1BDFA-87CC-43FE-8996-CDE0D893B644</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Open the CharacterPalette.app</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Character Palette</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>character</string>
+				<key>subtext</key>
+				<string>Launch the CharacterPalette.app</string>
+				<key>text</key>
+				<string>Open Character Palette</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>8E1E3515-CD40-4E65-8D08-90D8C8F39F8A</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/System/Library/Input Methods/CharacterPalette.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>BCF1BDFA-87CC-43FE-8996-CDE0D893B644</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>8E1E3515-CD40-4E65-8D08-90D8C8F39F8A</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>BCF1BDFA-87CC-43FE-8996-CDE0D893B644</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

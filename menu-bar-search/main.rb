@@ -13,7 +13,7 @@ cache_name = "/tmp/menu-cache-#{Digest::MD5.hexdigest(application_location)}.yam
 if File.exists?(cache_name)
   items = YAML.load_file(cache_name)
   xml = MenuItems.generate_xml(search_term, application, application_location, items)
-  `ruby background.rb #{cache_name} > /dev/null 2>&1 &`
+  # `ruby background.rb #{cache_name} > /dev/null 2>&1 &`
 else
   items = MenuItems.generate_items()
   File.open(cache_name, 'w') { |out| out.write(items.to_yaml) }

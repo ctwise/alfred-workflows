@@ -40,7 +40,7 @@ module MenuItems
   def generate_xml(search_term, application, application_location, items)
     found_items = items
     if search_term.length > 0
-      found_items = items.find_all { |item| item[:name].downcase.include?(search_term) }
+      found_items = items.find_all { |item| "#{item[:path]} > #{item[:name]}" =~ /#{search_term}/i }
     end
 
     feedback = Feedback.new

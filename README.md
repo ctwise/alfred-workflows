@@ -15,7 +15,7 @@ create-histlist-task
 
 Create tasks in the application The Hit List. Task text follows the format:
 
-	<task text> \[% <hit list category>\] \[! <priority>\] \[| <note text>\]
+	<task text> [% <hit list category>] [! <priority>] [| <note text>]
 
 Responds to the keyword 'ta'.
 

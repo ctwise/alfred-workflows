@@ -13,7 +13,7 @@ create-histlist-task
 
 Create tasks in the application The Hit List. Task text follows the format:
 
-  <task text> [% <hit list category>] [! <priority>] [| <note text>]
+	<task text> \[% <hit list category>\] \[! <priority>\] \[| <note text>\]
 
 Responds to the keyword 'ta'.
 
@@ -103,16 +103,16 @@ vmware-control
 
 Based on the Parallels Control workflow. Provides a mechanism to control VMWare VMs.
 
-Keyword 'vm list' lists the knows VMs and their current status. Selecting one copies the VM path to the clipboard.
-Keyword 'vm ip' lists the IP addresses of running VMs. Selecing one copies the IP address to the clipboard.
-Keyword 'vm start' lists the stopped VMs. Selecting one starts it.
-Keyword 'vm stop' lists the running VMs. Selecting one stops it.
-Keyword 'vm reset' lists the running VMs. Selecting one resets it.
-Keyword 'vm suspend' lists the running VMs. Selecting one suspends it.
-Keyword 'vm pause' lists the running VMs. Selecting one pauses it.
-Keyword 'vm unpause' lists the running VMS. Selecting one unpauses it.
-Keyword 'vm snapshot' requires a snapshot name and lists the running VMs. Selecting one creates a named snapshot of that VM.
-Keyword 'vm revert' requires a snapshot name and lists the running VMs. Selecting one reverts to a named snapshot of that VM.
+- Keyword 'vm list' lists the knows VMs and their current status. Selecting one copies the VM path to the clipboard.
+- Keyword 'vm ip' lists the IP addresses of running VMs. Selecing one copies the IP address to the clipboard.
+- Keyword 'vm start' lists the stopped VMs. Selecting one starts it.
+- Keyword 'vm stop' lists the running VMs. Selecting one stops it.
+- Keyword 'vm reset' lists the running VMs. Selecting one resets it.
+- Keyword 'vm suspend' lists the running VMs. Selecting one suspends it.
+- Keyword 'vm pause' lists the running VMs. Selecting one pauses it.
+- Keyword 'vm unpause' lists the running VMS. Selecting one unpauses it.
+- Keyword 'vm snapshot' requires a snapshot name and lists the running VMs. Selecting one creates a named snapshot of that VM.
+- Keyword 'vm revert' requires a snapshot name and lists the running VMs. Selecting one reverts to a named snapshot of that VM.
 
 volume-control
 --------------

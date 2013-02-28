@@ -1,7 +1,7 @@
 Alfred 2 Workflows
 ==================
 
-A collection of Alfred 2 workflows. Many of these workflows are rewrites or extensions of other people's work. I've tried to provide proper attribution where applicable.
+A collection of Alfred 2 workflows. Some of these workflows are rewrites or extensions of other people's work. I've tried to provide proper attribution where applicable.
 
 character-palette
 -----------------

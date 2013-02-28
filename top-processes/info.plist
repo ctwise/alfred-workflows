@@ -91,6 +91,8 @@
 				<string>on alfred_script(q)
 	tell application "Alfred 2" to search "kill " &amp; q
 end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.applescript</string>

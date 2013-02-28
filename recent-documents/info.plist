@@ -38,33 +38,6 @@
 	<array>
 		<dict>
 			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>keyword</key>
-				<string>recent</string>
-				<key>runningsubtext</key>
-				<string>Gathering documents...</string>
-				<key>script</key>
-				<string>ruby get_recent_docs.rb "{query}"</string>
-				<key>subtext</key>
-				<string>Find Recent Documents</string>
-				<key>title</key>
-				<string>View Recent Documents</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</string>
-		</dict>
-		<dict>
-			<key>config</key>
 			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.action.openfile</string>
@@ -89,11 +62,40 @@
 		end tell
 	end try
 end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>recent</string>
+				<key>runningsubtext</key>
+				<string>Gathering documents...</string>
+				<key>script</key>
+				<string>ruby get_recent_docs.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Find Recent Documents</string>
+				<key>title</key>
+				<string>View Recent Documents</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</string>
 		</dict>
 	</array>
 	<key>readme</key>

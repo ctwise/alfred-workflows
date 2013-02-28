@@ -214,7 +214,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>ruby vmware.rb run "{query}"</string>
+				<string>ruby main.rb run "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

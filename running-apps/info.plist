@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.running</string>
+	<key>connections</key>
+	<dict>
+		<key>76CDB735-009F-40D3-B036-ECA6DDAACAA4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>40E9AEDD-117D-4CAA-BFE5-4352E880B780</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9412C1EF-1812-457A-89FC-6B1F09AC10B9</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Quit app</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>List running applications</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Running</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	tell application "Alfred 2" to search "quit " &amp; q
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>9412C1EF-1812-457A-89FC-6B1F09AC10B9</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>running</string>
+				<key>runningsubtext</key>
+				<string>Loading</string>
+				<key>script</key>
+				<string>apps = `osascript -e 'tell application "System Events" to get the file of every process whose background only is false'`
+apps = apps.strip.split(",").collect {|line| line.strip.gsub(/^alias Macintosh HD/, '').gsub(/:/, '/')[0..-2]}.sort
+
+puts "&lt;items&gt;"
+apps.each do |line|
+  app_path = line
+  app_name = File.basename(app_path, ".app")
+  if !(app_path =~ /^\/System\//) &amp;&amp; !(app_path =~ /^\/Library\//)
+  puts &lt;&lt;ENDS_HERE
+  &lt;item uid="status" arg="#{app_name}"&gt;
+	&lt;title&gt;#{app_name}&lt;/title&gt;
+	&lt;subtitle&gt;Press Enter to quit #{app_path}&lt;/subtitle&gt;
+	&lt;icon type="fileicon"&gt;#{app_path}&lt;/icon&gt;
+  &lt;/item&gt;
+ENDS_HERE
+  end
+end
+puts "&lt;/items&gt;"
+</string>
+				<key>subtext</key>
+				<string>List all running applications</string>
+				<key>title</key>
+				<string>List Running Applications</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>76CDB735-009F-40D3-B036-ECA6DDAACAA4</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	tell application q		activate	end tellend alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>40E9AEDD-117D-4CAA-BFE5-4352E880B780</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>40E9AEDD-117D-4CAA-BFE5-4352E880B780</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>76CDB735-009F-40D3-B036-ECA6DDAACAA4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>9412C1EF-1812-457A-89FC-6B1F09AC10B9</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

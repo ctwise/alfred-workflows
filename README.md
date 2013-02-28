@@ -1,5 +1,5 @@
-alfred-workflows
-================
+Alfred 2 Workflows
+==================
 
 A collection of Alfred 2 workflows. Many of these workflows are rewrites or extensions of other people's work. I've tried to provide proper attribution where applicable.
 
@@ -21,9 +21,9 @@ Responds to the keyword 'ta'.
 
 Examples:
 
-	ta Do something			- Create the task 'Do something' in the inbox
+	ta Do something				- Create the task 'Do something' in the inbox
 	ta Do something else %work	- Create the task 'Do something else' in the Work folder
-	ta More work !1			- Create the task 'More work' in the inbox with priority 1
+	ta More work !1				- Create the task 'More work' in the inbox with priority 1
 	ta Stuff | Notes about it	- Create the task 'Stuff' in the inbox with 'Notes about it' as a note
 
 [Binary download](http://tedwi.se/u/de)

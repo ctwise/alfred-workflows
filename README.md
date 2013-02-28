@@ -8,6 +8,8 @@ character-palette
 
 Very simple workflow to display the OS/X Character Palette for selecting obscure characters. Responds to the keyword 'character'.
 
+[Binary download](http://tedwi.se/u/dd)
+
 create-histlist-task
 --------------------
 
@@ -24,12 +26,16 @@ Examples:
 	ta More work !1			- Create the task 'More work' in the inbox with priority 1
 	ta Stuff | Notes about it	- Create the task 'Stuff' in the inbox with 'Notes about it' as a note
 
+[Binary download](http://tedwi.se/u/de)
+
 date-and-time
 -------------
 
 Very simple workflow to display the current date and time, and, optionally, copy it to the clipboard.
 
 Responds to both keywords 'date' and 'time'.
+
+[Binary download](http://tedwi.se/u/df)
 
 google-autocomplete
 -------------------
@@ -38,12 +44,16 @@ This is based almost entirely on David Ferguson's workflow. It is rewritten in R
 
 Responds to the keyword 'g'.
 
+[Binary download](http://tedwi.se/u/dg)
+
 kill-process
 ------------
 
 Search for and kill a process. This lists all the processes that match the text typed. Selecting a process does a 'kill' on it. Holding down the alt modifier key does a 'kill -9' and holding down the cmd modifier does a 'kill -HUP'.
 
 Responds to the keyword 'kill'.
+
+[Binary download](http://tedwi.se/u/cx)
 
 menu-bar-search
 ---------------
@@ -54,6 +64,8 @@ This workflow lets you control the front-most application by triggering menu act
 
 This workflow is a work in progress and has rough edges. The first is that caches aren't aged - they're permanent. The second is that menu item names extracted from Applescript don't always match the displayed text, e.g., a menu item might say 'Turn feature off' or 'Turn feature on' based on the feature status but the extracted menu text is 'Toggle feature'. The result is that the menu item can't be activated by the workflow.
 
+[Binary download](http://tedwi.se/u/db)
+
 network-info
 ------------
 
@@ -62,6 +74,8 @@ This is based on David Ferguson's IP Address workflow. The difference is that it
 The workflow responds to the keywords 'ip' and 'mac'. For the 'ip' keyword it lists all interfaces and the local IP addresses. It also displays the external IP address. For the 'mac' keyword it lists all interfaces and the local MAC addresses.
 
 If you select an IP address or MAC address it will be copied to the clipboard. Holding down the cmd modifier key will also paste it in the front-most application.
+
+[Binary download](http://tedwi.se/u/d8)
 
 recent-documents
 ----------------
@@ -72,12 +86,16 @@ Triggering the workflow lists all of the recent documents. Selecting one will op
 
 Responds to the keyword 'recent'.
 
+[Binary download](http://tedwi.se/u/d9)
+
 running-apps
 ------------
 
 Lists all of the running OS/X applications (not processes, what OS/X considers as a running app). Selecting one will activate the application. Holding down the alt modifier key will trigger the built-in 'quit' Alfred command.
 
 Responds to the keyword 'running'.
+
+[Binary download](http://tedwi.se/u/dh)
 
 search-pubmed
 -------------
@@ -86,6 +104,8 @@ Searches PubMed at ncbi.nlm.nih.gov. Provides two alternates search modes. The f
 
 Responds to the keywords 'pubmed' for article searches and 'pubmed2' for search suggestions.
 
+[Binary download](http://tedwi.se/u/d5)
+
 time-machine
 ------------
 
@@ -93,10 +113,14 @@ Simple Time Machine status and control. Shows the Time Machine completion status
 
 Responds to the keywords 'tmac status' to show status, to 'tmac start' to start a Time Machine backup and to 'tmac stop' to stop a Time Machine backup.
 
+[Binary download](http://tedwi.se/u/dc)
+
 top-processes
 -------------
 
 Lists the top processes, aka the command-line 'top'. Selecting a process will activate the 'kill-process' workflow to kill the selected process.
+
+[Binary download](http://tedwi.se/u/d6)
 
 vmware-control
 --------------
@@ -114,8 +138,11 @@ Based on the Parallels Control workflow. Provides a mechanism to control VMWare 
 - Keyword 'vm snapshot' requires a snapshot name and lists the running VMs. Selecting one creates a named snapshot of that VM.
 - Keyword 'vm revert' requires a snapshot name and lists the running VMs. Selecting one reverts to a named snapshot of that VM.
 
+[Binary download](http://tedwi.se/u/d4)
+
 volume-control
 --------------
 
 Simple workflow that provides volume control. Keyword 'max' sets the volume to max. Keyword 'medium' sets the volume to mid-level. Keyword 'mute' mutes the system volume.
 
+[Binary download](http://tedwi.se/u/di)

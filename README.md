@@ -106,6 +106,15 @@ Responds to the keywords 'pubmed' for article searches and 'pubmed2' for search 
 
 [Binary download](http://tedwi.se/u/d5)
 
+show-desktop
+------------
+
+Simple workflow to hide all applications, showing the desktop.
+
+Responds to the keyword 'show desktop'.
+
+[Binary download](http://tedwi.se/u/dj)
+
 time-machine
 ------------
 

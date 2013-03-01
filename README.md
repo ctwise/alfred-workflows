@@ -131,6 +131,16 @@ Lists the top processes, aka the command-line 'top'. Selecting a process will ac
 
 [Binary download](http://tedwi.se/u/d6)
 
+urlencode
+---------
+
+Encodes and decodes text for use in a URL.
+
+- Keyword 'urlencode' requires text and encodes it for use in a URL, copying it to the clipboard.
+- Keyword 'urldecode' requires text and decodes it from a URL, copying it to the clipboard.
+
+[Binary download](http://tedwi.se/u/dk)
+
 vmware-control
 --------------
 

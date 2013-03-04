@@ -55,7 +55,7 @@ end alfred_script</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>63</integer>
 				<key>keyword</key>
@@ -70,11 +70,15 @@ puts "&lt;items&gt;"
 apps.each do |line|
   app_path = line
   app_name = File.basename(app_path, ".app")
+  query = "{query}"
+  if ! app_name.downcase[query]
+    next
+  end
   if !(app_path =~ /^\/System\//) &amp;&amp; !(app_path =~ /^\/Library\//)
   puts &lt;&lt;ENDS_HERE
   &lt;item uid="status" arg="#{app_name}"&gt;
 	&lt;title&gt;#{app_name}&lt;/title&gt;
-	&lt;subtitle&gt;Press Enter to quit #{app_path}&lt;/subtitle&gt;
+	&lt;subtitle&gt;Press Enter to activate #{app_path}&lt;/subtitle&gt;
 	&lt;icon type="fileicon"&gt;#{app_path}&lt;/icon&gt;
   &lt;/item&gt;
 ENDS_HERE
@@ -89,7 +93,7 @@ puts "&lt;/items&gt;"
 				<key>type</key>
 				<integer>2</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -104,11 +108,16 @@ puts "&lt;/items&gt;"
 	tell application q
 		try
 			reopen
-		end try		activate
-		try -- We don't need error messages			set miniaturized of windows to false		end try
+		end try
+		activate
+		try -- We don't need error messages
+			set miniaturized of windows to false
+		end try
 	    try -- We don't need error messages
 			set collapsed of windows to false
-		end try	end tellend alfred_script</string>
+		end try
+	end tell
+end alfred_script</string>
 				<key>cachescript</key>
 				<true/>
 			</dict>

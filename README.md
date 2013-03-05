@@ -37,6 +37,18 @@ Responds to both keywords 'date' and 'time'.
 
 [Binary download](http://tedwi.se/u/df)
 
+fantastical
+-----------
+
+Interfaces with Fantastical to add calendar events.
+
+Responds to keyword 'cal'.
+
+Examples:
+
+	cal Do something at 3pm
+	cal Pick up kids at school mar 5 at 6pm
+
 google-autocomplete
 -------------------
 

@@ -35,7 +35,8 @@ if xml_data.length > 0
 	suggestion_doc = REXML::Document.new(xml_data)
 	suggestion_doc.elements.each('toplevel/CompleteSuggestion') do |ele|
 	   text = ele.elements['suggestion'].attributes['data']
-	   count = ele.elements['num_queries'].attributes['int']
+     num_queries_elem = ele.elements['num_queries']
+	   count = num_queries_elem ? ele.elements['num_queries'].attributes['int'] : 0
 	   suggestions << {:text => text, :count => count}
 	end
 end

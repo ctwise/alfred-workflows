@@ -67,6 +67,13 @@ Responds to the keyword 'kill'.
 
 [Binary download](http://tedwi.se/u/cx)
 
+maven-repository
+----------------
+
+Searches mvnrepository.com for a given search term.
+
+[Binary download](http://tedwi.se/u/dl)
+
 menu-bar-search
 ---------------
 

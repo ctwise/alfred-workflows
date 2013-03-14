@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>F1B9E8F6-9DF2-46E2-840A-9AEA87E45B55</string>
+				<string>A3978DD7-684C-41FC-B198-04B4A55E6F83</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -18,11 +18,11 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>09647218-9F2D-4A60-B9FC-58A5E02BFCEE</string>
+				<string>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Action to select VM window</string>
 			</dict>
 		</array>
 		<key>0BE4FF28-1ADD-4CE6-9104-D9AB1CF72C13</key>
@@ -69,6 +69,25 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>A3978DD7-684C-41FC-B198-04B4A55E6F83</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F1B9E8F6-9DF2-46E2-840A-9AEA87E45B55</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>09647218-9F2D-4A60-B9FC-58A5E02BFCEE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>AEE4F28B-388C-4645-AD4F-62C84404DC66</key>
 		<array>
 			<dict>
@@ -104,6 +123,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>743CD08E-D07E-4261-9C4E-60697F65F5B8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D473FC16-9C53-443E-8559-7BEA6EA70B5B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -214,6 +244,21 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
+				<string>puts "{query}".chomp.split("|||")[1]</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A3978DD7-684C-41FC-B198-04B4A55E6F83</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
 				<string>ruby main.rb run "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
@@ -249,6 +294,33 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>525650A1-3702-4773-9CBA-FC9A72FB9059</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vm switch</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>ruby main.rb switch</string>
+				<key>subtext</key>
+				<string>List all running VMs to activate</string>
+				<key>title</key>
+				<string>Open Virtual Machine Window</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D473FC16-9C53-443E-8559-7BEA6EA70B5B</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -376,6 +448,23 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>E2664F7E-FB35-4820-B90D-BB83DA272FF3</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>line = "{query}"
+name = line.chomp.split("|||")[0]
+`osascript activate_window.scpt "#{name}"`</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -541,6 +630,11 @@ vm revert &lt;name&gt; - Get a list of VM's that are currently running so that y
 			<key>ypos</key>
 			<real>490</real>
 		</dict>
+		<key>A3978DD7-684C-41FC-B198-04B4A55E6F83</key>
+		<dict>
+			<key>ypos</key>
+			<real>1090</real>
+		</dict>
 		<key>AEE4F28B-388C-4645-AD4F-62C84404DC66</key>
 		<dict>
 			<key>ypos</key>
@@ -561,6 +655,11 @@ vm revert &lt;name&gt; - Get a list of VM's that are currently running so that y
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
+		<key>D473FC16-9C53-443E-8559-7BEA6EA70B5B</key>
+		<dict>
+			<key>ypos</key>
+			<real>1210</real>
+		</dict>
 		<key>E2664F7E-FB35-4820-B90D-BB83DA272FF3</key>
 		<dict>
 			<key>ypos</key>
@@ -570,6 +669,11 @@ vm revert &lt;name&gt; - Get a list of VM's that are currently running so that y
 		<dict>
 			<key>ypos</key>
 			<real>610</real>
+		</dict>
+		<key>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</key>
+		<dict>
+			<key>ypos</key>
+			<real>1210</real>
 		</dict>
 		<key>F1B9E8F6-9DF2-46E2-840A-9AEA87E45B55</key>
 		<dict>

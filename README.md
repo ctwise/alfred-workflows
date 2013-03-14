@@ -165,8 +165,9 @@ vmware-control
 
 Based on the Parallels Control workflow. Provides a mechanism to control VMWare VMs.
 
-- Keyword 'vm list' lists the knows VMs and their current status. Selecting one copies the VM path to the clipboard.
+- Keyword 'vm list' lists the known VMs and their current status. Selecting one copies the VM path to the clipboard.
 - Keyword 'vm ip' lists the IP addresses of running VMs. Selecing one copies the IP address to the clipboard.
+- Keyword 'vm switch' lists the running VMs. Selecting one activates the VM window.
 - Keyword 'vm start' lists the stopped VMs. Selecting one starts it.
 - Keyword 'vm stop' lists the running VMs. Selecting one stops it.
 - Keyword 'vm reset' lists the running VMs. Selecting one resets it.

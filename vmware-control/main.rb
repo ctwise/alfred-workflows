@@ -19,7 +19,15 @@ end
 
 def list
   generate { |items, vm|
-    items.add_item({:uid => vm.path, :arg => vm.path, :title => "#{vm.name} (#{vm.status})", :subtitle => vm.path, :icon => {:name => vm.icon}})
+    items.add_item({:uid => vm.path, :arg => "#{vm.name}|||#{vm.path}", :title => "#{vm.name} (#{vm.status})", :subtitle => "Action to copy path or press ⌘ to select window. #{vm.path}", :icon => {:name => vm.icon}})
+  }
+end
+
+def switch
+  generate { |items, vm|
+    if vm.running?
+      items.add_item({:uid => vm.path, :arg => "#{vm.name}|||#{vm.path}", :title => "#{vm.name} (#{vm.status})", :subtitle => vm.path, :icon => {:name => vm.icon}})
+    end
   }
 end
 
@@ -108,6 +116,8 @@ if ARGV.length > 0
   case command
     when 'list' then
       puts list()
+    when 'switch' then
+      puts switch()
     when 'ip' then
       puts ip()
     when 'start' then

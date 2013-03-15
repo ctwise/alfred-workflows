@@ -43,6 +43,15 @@ module MenuItems
       found_items = items.find_all { |item| "#{item[:path]} > #{item[:name]}" =~ /#{search_term}/i }
     end
 
+    # remove menu items that have child menu items
+    # nothing will happen when you click a parent menu
+    found_items.each do |p|
+        child_items = found_items.find_all { |c| "#{p[:path]} > #{p[:name]}" == "#{c[:path]}" }
+        if child_items.size > 0
+            found_items.delete_at(found_items.index(p))
+        end  
+    end
+
     feedback = Feedback.new
     found_items.each do |item|
       icon = {:type => "fileicon", :name => application_location}

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require "cgi"
 require "digest/md5"
 load "alfred_feedback.rb"

@@ -118,21 +118,26 @@ private
 			if vmconfig.running?
 				vmconfig.ip_address = ip_address(vmconfig.path)
 			end
-			vmconfig.os = runtimeConfig(vmconfig.path, 'guestOS')
-			vmconfig.icon = icon_name(vmconfig.os)
+			guestOS = runtimeConfig(vmconfig.path, 'guestOS')
+			if !guestOS.nil?
+				vmconfig.os = guestOS
+				vmconfig.icon = icon_name(vmconfig.os)
+			end
 		end
 		inventory
 	end
 
-	def runtimeConfig(path, var) 
-		contents = File.open(path, "rb").each_line do |line|
-			parts = line.split("=")
-			if parts.length == 2
-			  lhs = parts[0].strip
-			  rhs = parts[1].strip
-			  if lhs == var
-			  	return remove_quotations(rhs)
-			  end
+	def runtimeConfig(path, var)
+		if File.exists?(path) 
+			contents = File.open(path, "rb").each_line do |line|
+				parts = line.split("=")
+				if parts.length == 2
+				  lhs = parts[0].strip
+				  rhs = parts[1].strip
+				  if lhs == var
+				  	return remove_quotations(rhs)
+				  end
+				end
 			end
 		end
 		nil

@@ -28,17 +28,136 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>4A6FB639-B3F5-4157-9B8F-2DEE5D2433CD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A7ECDA18-EE53-49E9-978E-90A99F66A750</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>712FBEE3-EDEE-4656-B917-96279DD7227A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4A6FB639-B3F5-4157-9B8F-2DEE5D2433CD</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Delete the task</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0474EAAC-78A6-4B0A-BC51-DCA131F27387</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Create a HitList task</string>
+	<string>Manage The Hit List tasks</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Create The HitList task</string>
+	<string>The Hit List</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>ta list</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>load "alfred_feedback.rb"
+
+tasks = `osascript get_tasks.scpt`.strip().split('###')[1..-1] || []
+
+feedback = Feedback.new
+tasks.each do |line|
+	task = line.split('@@@')
+	due_date = task[1]
+	due_date = "&lt;none&gt;" if due_date.length == 0
+	subtitle = "Priority: #{task[2]}, Due date: #{due_date}. Press &lt;Enter&gt; to complete task."
+	feedback.add_item(:title =&gt; task[0], :subtitle =&gt; subtitle, :arg =&gt; task[3])
+end
+
+puts feedback.to_xml
+
+
+</string>
+				<key>subtext</key>
+				<string>List the tasks for today</string>
+				<key>title</key>
+				<string>List Today's Tasks</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>712FBEE3-EDEE-4656-B917-96279DD7227A</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ta</string>
+				<key>subtext</key>
+				<string>Create a new HitList task</string>
+				<key>text</key>
+				<string>Create a HitList task</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3B911D1C-C6BF-4F3D-B25B-793F5F98AA34</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>osascript hitlist.scpt "{query}" &gt; /dev/null
+echo "{query}" | tr -d '\n'</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>34D243C3-C86B-4E57-A0E1-F9251A02586A</string>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -65,43 +184,89 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>ta</string>
-				<key>subtext</key>
-				<string>Create a new HitList task</string>
-				<key>text</key>
-				<string>Create a HitList task</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>3B911D1C-C6BF-4F3D-B25B-793F5F98AA34</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>escaping</key>
-				<integer>4</integer>
-				<key>normalisation</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>osascript hitlist.scpt "{query}" &gt; /dev/null
-echo "{query}" | tr -d '\n'</string>
+				<string>osascript delete_task.scpt {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>34D243C3-C86B-4E57-A0E1-F9251A02586A</string>
+			<string>4A6FB639-B3F5-4157-9B8F-2DEE5D2433CD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>osascript complete_task.scpt {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Task marked as completed</string>
+				<key>title</key>
+				<string>Task completed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0474EAAC-78A6-4B0A-BC51-DCA131F27387</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>The task was deleted</string>
+				<key>title</key>
+				<string>Task deleted</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A7ECDA18-EE53-49E9-978E-90A99F66A750</string>
 		</dict>
 	</array>
+	<key>readme</key>
+	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>0474EAAC-78A6-4B0A-BC51-DCA131F27387</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
+		</dict>
 		<key>232C4EAF-36A0-44E9-952B-3B593A9B4078</key>
 		<dict>
 			<key>ypos</key>
@@ -116,6 +281,26 @@ echo "{query}" | tr -d '\n'</string>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
+		</dict>
+		<key>4A6FB639-B3F5-4157-9B8F-2DEE5D2433CD</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>712FBEE3-EDEE-4656-B917-96279DD7227A</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>A7ECDA18-EE53-49E9-978E-90A99F66A750</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -1,0 +1,5 @@
+{
+    "version": 1.0,
+    "remote_json": "http://tedwise.com/files/date_and_time.json",
+    "description": "Initial implementation."
+}

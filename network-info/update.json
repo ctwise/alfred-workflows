@@ -1,0 +1,5 @@
+{
+    "version": 1.0,
+    "remote_json": "http://tedwise.com/files/network_info.json",
+    "description": "Initial implementation."
+}

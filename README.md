@@ -25,8 +25,9 @@ Examples:
 	ta Do something else %work	- Create the task 'Do something else' in the Work folder
 	ta More work !1				- Create the task 'More work' in the inbox with priority 1
 	ta Stuff | Notes about it	- Create the task 'Stuff' in the inbox with 'Notes about it' as a note
+	ta list                     - List open tasks
 
-[Binary download](http://tedwi.se/u/de)
+[Binary download](http://tedwi.se/u/ds)
 
 date-and-time
 -------------

@@ -1,66 +1,57 @@
+# encoding: UTF-8
+require 'yaml'
+require 'pp'
+load 'alfred_feedback.rb'
+
 module MenuItems
 
-  def generate_items()
-    menu_items = `osascript enumerate.scpt | sed -E 's/of application "System Events", /\\'$'\\n/g' | grep -E '^menu item "' | sed -E 's/ of menu bar 1.+$//g'`
-    items = menu_items.split("\n").collect do |menu_item| 
-      menu_path = []
-      buffer_match = /\".*?\"(.*)/.match(menu_item)
-      if !buffer_match.nil?
-        buffer = buffer_match[1]
-        File.open('/tmp/buffer.txt', 'w') {|f| f.write(buffer) }
-        while buffer.length > 0
-          section = / of menu \"(.*?)\" of menu item \"(.*?)\"/.match(buffer)
-          if section.nil?
-            section = / of menu ([0-9]*) of menu item ([0-9]*)/.match(buffer)
-          end
-          if section.nil?
-            section = / of menu \"(.*?)\" of menu bar item \"(.*?)\"/.match(buffer)
-          end
-          if section.nil?
-            section = / of menu ([0-9]*) of menu bar item ([0-9]*)/.match(buffer)
-          end
-          if section.nil?
-            buffer = ""
-          else
-            buffer = buffer[(section[0].length)..-1]
-            menu_path << section[1]
-          end
+  def self.gather_leaves(menu_items)
+    leaves = []
+    menu_items.each do |menu_item|
+      locator = menu_item['locator']
+      children = menu_item['children']
+      if children
+        leaves += gather_leaves(menu_item['children'])
+      else
+        if locator && locator.length > 0
+          leaves << menu_item
         end
-
-        {:name => /^menu item \"(.*?)\"/.match(menu_item)[1], 
-          :line => menu_item[/\"(.*)/],
-          :menu_bar => / of menu bar item \"(.*?)\"$/.match(menu_item)[1],
-          :path => menu_path.reverse.join(' > ') 
-        }
       end
     end
-    items
+    leaves
   end
 
-  def generate_xml(search_term, application, application_location, items)
-    found_items = items
-    if search_term.length > 0
-      found_items = items.find_all { |item| "#{item[:path]} > #{item[:name]}" =~ /#{search_term}/i }
-    end
+  def generate_items()
+    menu_yaml = `./menudump --yaml`
+    menu_items = YAML.load(menu_yaml)
 
-    # remove menu items that have child menu items
-    # nothing will happen when you click a parent menu
-    found_items.each do |p|
-        child_items = found_items.find_all { |c| "#{p[:path]} > #{p[:name]}" == "#{c[:path]}" }
-        if child_items.size > 0
-            found_items.delete_at(found_items.index(p))
-        end  
+    menu_leaves = gather_leaves(menu_items['menus'])
+
+    items = []
+    menu_leaves.each do |menu_item|
+      items << {:name => menu_item['name'],
+        :shortcut => menu_item['shortcut'],
+        :line => menu_item['locator'],
+        :path => menu_item['menuPath']
+      }
+    end
+    app_info = menu_items['application']
+    {:menus => items, :application => app_info['name'], :application_location => app_info['bundlePath']}
+  end
+
+  def generate_xml(search_term, items)
+    application = items[:application]
+    application_location = items[:application_location]
+    found_items = items[:menus]
+    if search_term.length > 0
+      found_items = found_items.find_all { |item| "#{item[:path]} > #{item[:name]}" =~ /#{search_term}/i }
     end
 
     feedback = Feedback.new
     found_items.each do |item|
       icon = {:type => "fileicon", :name => application_location}
-      app = application
-      if item[:menu_bar] == 'Apple'
-        icon = {:name => "apple-icon.png"}
-        app = "System"
-      end
-      feedback.add_item({:title => item[:name], :arg => item[:line], :uid => "#{app} menu '#{item[:path]}'", :subtitle => "#{app} menu '#{item[:path]}'", :icon => icon})
+      name = item[:name]
+      feedback.add_item({:title => name, :arg => item[:line], :uid => "#{application}: #{item[:path]} > #{item[:name]}", :subtitle => "#{application}: #{item[:path]}", :icon => icon})
     end
 
     feedback.to_xml

@@ -6,6 +6,8 @@
 	<string>com.tedwise.menubarsearch</string>
 	<key>connections</key>
 	<dict>
+		<key>C8DFF277-2C74-48D3-B685-F304268DF007</key>
+		<array/>
 		<key>D75A822F-5FB7-4372-B080-617E8D0BA5C1</key>
 		<array>
 			<dict>

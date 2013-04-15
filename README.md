@@ -78,11 +78,9 @@ Searches mvnrepository.com for a given search term.
 menu-bar-search
 ---------------
 
-This is based on the workflow by Jeroen van der Neut. It was his excellent idea and he provided the Applescript to extract menu items.
+This is based on the workflow by Jeroen van der Neut. It was his excellent idea and he provided the original Applescript to extract menu items.
 
-This workflow lets you control the front-most application by triggering menu actions. The text entered is used to display matching menu items. The change from Jeroen van der Neut's workflow is to cache the menu items.
-
-This workflow is a work in progress and has rough edges. The first is that caches aren't aged - they're permanent. The second is that menu item names extracted from Applescript don't always match the displayed text, e.g., a menu item might say 'Turn feature off' or 'Turn feature on' based on the feature status but the extracted menu text is 'Toggle feature'. The result is that the menu item can't be activated by the workflow.
+This workflow lets you control the front-most application by triggering menu actions. The text entered is used to display matching menu items. Some apps have such large menus that performance is terrible, e.g., Safari.
 
 [Binary download](http://tedwi.se/u/db)
 

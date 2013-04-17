@@ -23,20 +23,25 @@ module MenuItems
 
   def generate_items()
     menu_yaml = `./menudump --yaml`
-    menu_items = YAML.load(menu_yaml)
+    if $? == 0
+      menu_items = YAML.load(menu_yaml)
 
-    menu_leaves = gather_leaves(menu_items['menus'])
+      menu_leaves = gather_leaves(menu_items['menus'])
 
-    items = []
-    menu_leaves.each do |menu_item|
-      items << {:name => menu_item['name'],
-        :shortcut => menu_item['shortcut'],
-        :line => menu_item['locator'],
-        :path => menu_item['menuPath']
-      }
+      items = []
+      menu_leaves.each do |menu_item|
+        items << {:name => menu_item['name'],
+          :shortcut => menu_item['shortcut'],
+          :line => menu_item['locator'],
+          :path => menu_item['menuPath']
+        }
+      end
+      app_info = menu_items['application']
+      {:menus => items, :application => app_info['name'], :application_location => app_info['bundlePath']}
+    else
+      parts = menu_yaml.split(/\. /)
+      {:menus => [{:name => "Error: #{parts[0]}", :shortcut => "", :line => "", :path => parts[1]}], :application => 'Error', :application_location => 'Error'}
     end
-    app_info = menu_items['application']
-    {:menus => items, :application => app_info['name'], :application_location => app_info['bundlePath']}
   end
 
   def generate_xml(search_term, items)

@@ -177,7 +177,7 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Control VMWare Fusion instances</string>
+	<string>Control VMWare Fusion instances (1.1)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -188,46 +188,19 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>vm unpause</string>
+				<string>vm start</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby main.rb unpause</string>
+				<string>ruby main.rb start {query}</string>
 				<key>subtext</key>
-				<string>Unpause a VM</string>
+				<string>Start a VM (add nogui to suppress gui)</string>
 				<key>title</key>
-				<string>Unpause a Virtual Machine</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>E79FD50F-E920-4E4A-B18C-FE604C5E3F79</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>keyword</key>
-				<string>vm revert</string>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
-				<key>script</key>
-				<string>ruby main.rb revert "{query}"</string>
-				<key>subtext</key>
-				<string>Revert to a snapshot of a VM (a title is required)</string>
-				<key>title</key>
-				<string>Revert to snapshot of a Virtual Machine</string>
+				<string>Start Virtual Machine</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -236,22 +209,88 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>CD0C1511-7BDE-4D19-B1B5-6269E0E6C0B8</string>
+			<string>D31C518A-5B7A-4AC1-BAFD-D00BA9AF19D1</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vm stop</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
 				<key>script</key>
-				<string>puts "{query}".chomp.split("|||")[1]</string>
+				<string>ruby main.rb stop {query}</string>
+				<key>subtext</key>
+				<string>Stop a VM (add hard to force stop)</string>
+				<key>title</key>
+				<string>Stop Virtual Machine</string>
 				<key>type</key>
-				<integer>2</integer>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>A3978DD7-684C-41FC-B198-04B4A55E6F83</string>
+			<string>0BE4FF28-1ADD-4CE6-9104-D9AB1CF72C13</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vm reset</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>ruby main.rb reset {query}</string>
+				<key>subtext</key>
+				<string>Reset a VM (add hard to force stop)</string>
+				<key>title</key>
+				<string>Reset a Virtual Machine</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F526A449-A8F4-4732-86F0-DF2DAC4EF0E3</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vm suspend</string>
+				<key>runningsubtext</key>
+				<string>Loading.</string>
+				<key>script</key>
+				<string>ruby main.rb suspend {query}</string>
+				<key>subtext</key>
+				<string>Suspend a VM (add hard to force stop)</string>
+				<key>title</key>
+				<string>Suspend a Virtual Machine</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>11A88FF7-59F1-42E5-915B-A53DC541EFFD</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -298,83 +337,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>vm switch</string>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
-				<key>script</key>
-				<string>ruby main.rb switch</string>
-				<key>subtext</key>
-				<string>List all running VMs to activate</string>
-				<key>title</key>
-				<string>Open Virtual Machine Window</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>D473FC16-9C53-443E-8559-7BEA6EA70B5B</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Copied to clipboard</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>09647218-9F2D-4A60-B9FC-58A5E02BFCEE</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>vm suspend</string>
-				<key>runningsubtext</key>
-				<string>Loading.</string>
-				<key>script</key>
-				<string>ruby main.rb suspend {query}</string>
-				<key>subtext</key>
-				<string>Suspend a VM (add hard to force stop)</string>
-				<key>title</key>
-				<string>Suspend a Virtual Machine</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>11A88FF7-59F1-42E5-915B-A53DC541EFFD</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -399,28 +361,28 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>vm start</string>
+				<string>vm unpause</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby main.rb start {query}</string>
+				<string>ruby main.rb unpause</string>
 				<key>subtext</key>
-				<string>Start a VM (add nogui to suppress gui)</string>
+				<string>Unpause a VM</string>
 				<key>title</key>
-				<string>Start Virtual Machine</string>
+				<string>Unpause a Virtual Machine</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>D31C518A-5B7A-4AC1-BAFD-D00BA9AF19D1</string>
+			<string>E79FD50F-E920-4E4A-B18C-FE604C5E3F79</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -452,37 +414,20 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
 				<key>escaping</key>
 				<integer>4</integer>
-				<key>script</key>
-				<string>line = "{query}"
-name = line.chomp.split("|||")[0]
-`osascript activate_window.scpt "#{name}"`</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>0</integer>
 				<key>keyword</key>
-				<string>vm stop</string>
+				<string>vm revert</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby main.rb stop {query}</string>
+				<string>ruby main.rb revert "{query}"</string>
 				<key>subtext</key>
-				<string>Stop a VM (add hard to force stop)</string>
+				<string>Revert to a snapshot of a VM (a title is required)</string>
 				<key>title</key>
-				<string>Stop Virtual Machine</string>
+				<string>Revert to snapshot of a Virtual Machine</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -491,7 +436,85 @@ name = line.chomp.split("|||")[0]
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>0BE4FF28-1ADD-4CE6-9104-D9AB1CF72C13</string>
+			<string>CD0C1511-7BDE-4D19-B1B5-6269E0E6C0B8</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vm ip</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>ruby main.rb ip</string>
+				<key>subtext</key>
+				<string>List all VM IP addresses for running VMs</string>
+				<key>title</key>
+				<string>List Virtual Machine IP Addresses</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AEE4F28B-388C-4645-AD4F-62C84404DC66</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>F1B9E8F6-9DF2-46E2-840A-9AEA87E45B55</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>puts "{query}".chomp.split("|||")[1]</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A3978DD7-684C-41FC-B198-04B4A55E6F83</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>09647218-9F2D-4A60-B9FC-58A5E02BFCEE</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -528,15 +551,15 @@ name = line.chomp.split("|||")[0]
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>vm ip</string>
+				<string>vm switch</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby main.rb ip</string>
+				<string>ruby main.rb switch</string>
 				<key>subtext</key>
-				<string>List all VM IP addresses for running VMs</string>
+				<string>List all running VMs to activate</string>
 				<key>title</key>
-				<string>List Virtual Machine IP Addresses</string>
+				<string>Open Virtual Machine Window</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -545,47 +568,24 @@ name = line.chomp.split("|||")[0]
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>AEE4F28B-388C-4645-AD4F-62C84404DC66</string>
+			<string>D473FC16-9C53-443E-8559-7BEA6EA70B5B</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
 				<key>escaping</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>vm reset</string>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
+				<integer>4</integer>
 				<key>script</key>
-				<string>ruby main.rb reset {query}</string>
-				<key>subtext</key>
-				<string>Reset a VM (add hard to force stop)</string>
-				<key>title</key>
-				<string>Reset a Virtual Machine</string>
+				<string>line = "{query}"
+name = line.chomp.split("|||")[0]
+`osascript activate_window.scpt "#{name}"`</string>
 				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
+				<integer>2</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>F526A449-A8F4-4732-86F0-DF2DAC4EF0E3</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>F1B9E8F6-9DF2-46E2-840A-9AEA87E45B55</string>
+			<string>EA29BB54-3E00-4D42-9A43-7A19BB736D7C</string>
 		</dict>
 	</array>
 	<key>readme</key>

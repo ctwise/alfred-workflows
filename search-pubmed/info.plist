@@ -32,7 +32,7 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Two different methods to get autocomplete for PubMed.</string>
+	<string>Two different methods to get autocomplete for PubMed. (1.1)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -47,13 +47,11 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>pubmed2</string>
-				<key>normalisation</key>
-				<integer>0</integer>
+				<string>pubmed</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby pubmed_lookup.rb "{query}"</string>
+				<string>ruby pubmed.rb "{query}"</string>
 				<key>subtext</key>
 				<string>Search articles in PubMed</string>
 				<key>title</key>
@@ -66,22 +64,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>FCC430CF-F6E6-42F0-909D-2B2A54883087</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>http://www.ncbi.nlm.nih.gov/pubmed?term={query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>796C3CEA-AE9E-41F1-A626-1302A1FF927D</string>
+			<string>279E2C71-F15A-4784-B3C6-90CCB036325F</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -101,18 +84,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>http://www.ncbi.nlm.nih.gov/pubmed?term={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>796C3CEA-AE9E-41F1-A626-1302A1FF927D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>pubmed</string>
-				<key>normalisation</key>
-				<integer>0</integer>
+				<string>pubmed2</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby pubmed.rb "{query}"</string>
+				<string>ruby pubmed_lookup.rb "{query}"</string>
 				<key>subtext</key>
 				<string>Search articles in PubMed</string>
 				<key>title</key>
@@ -125,7 +121,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>279E2C71-F15A-4784-B3C6-90CCB036325F</string>
+			<string>FCC430CF-F6E6-42F0-909D-2B2A54883087</string>
 		</dict>
 	</array>
 	<key>readme</key>

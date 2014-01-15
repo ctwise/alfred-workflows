@@ -56,6 +56,11 @@ module MenuItems
     found_items.each do |item|
       icon = {:type => "fileicon", :name => application_location}
       name = item[:name]
+      if item[:shortcut].empty?
+        name = item[:name]
+      else
+        name = "#{item[:name]}      #{item[:shortcut]}"
+      end
       feedback.add_item({:title => name, :arg => item[:line], :uid => "#{application}: #{item[:path]} > #{item[:name]}", :subtitle => "#{application}: #{item[:path]}", :icon => icon})
     end
 

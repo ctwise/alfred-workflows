@@ -27,7 +27,7 @@ Examples:
 	ta Stuff | Notes about it	- Create the task 'Stuff' in the inbox with 'Notes about it' as a note
 	ta list                     - List open tasks
 
-[Binary download](http://tedwi.se/u/ds)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.hitlist/the_hit_list.alfredworkflow)
 
 date-and-time
 -------------
@@ -49,6 +49,17 @@ Examples:
 
 	cal Do something at 3pm
 	cal Pick up kids at school mar 5 at 6pm
+
+[Binary download](http://tedwi.se/u/ed)
+
+funnel
+------
+
+Passes selected text or a file through a filter to transform the text. The result is pasted back for selected text or replaces the selected file.
+
+Filters include case transformations, url encoding/decoding, base64, etc.
+
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.funnel/funnel.alfredworkflow)
 
 google-autocomplete
 -------------------
@@ -82,7 +93,7 @@ This is based on the workflow by Jeroen van der Neut. It was his excellent idea 
 
 This workflow lets you control the front-most application by triggering menu actions. The text entered is used to display matching menu items. Some apps have such large menus that performance is terrible, e.g., Safari.
 
-[Binary download](http://tedwi.se/u/db)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.menubarsearch/menu_bar_search.alfredworkflow)
 
 network-info
 ------------
@@ -93,7 +104,14 @@ The workflow responds to the keywords 'ip' and 'mac'. For the 'ip' keyword it li
 
 If you select an IP address or MAC address it will be copied to the clipboard. Holding down the cmd modifier key will also paste it in the front-most application.
 
-[Binary download](http://tedwi.se/u/d8)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.networkinfo/network_info.alfredworkflow)
+
+password-phrase
+---------------
+
+Generates password phrases (ala XKCD). You can optionally provide a max length. The password phrase always contains a leading uppercase and trailing digit to satisfy most password rules.
+
+[Binary download](http://tedwi.se/u/ee)
 
 recent-documents
 ----------------
@@ -104,7 +122,16 @@ Triggering the workflow lists all of the recent documents. Selecting one will op
 
 Responds to the keyword 'recent'.
 
-[Binary download](http://tedwi.se/u/d9)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.recentdocs/recent_documents.alfredworkflow)
+
+remote-desktop
+--------------
+
+List desktops defined in Microsoft Remote Desktop and open the selected desktop. You can optionally filter desktops by typing text contained in the desktop name.
+
+Responds to the keyword 'rdp'.
+
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.rdp/microsoft_remote_desktop.alfredworkflow)
 
 running-apps
 ------------
@@ -140,7 +167,7 @@ Simple Time Machine status and control. Shows the Time Machine completion status
 
 Responds to the keywords 'tmac status' to show status, to 'tmac start' to start a Time Machine backup and to 'tmac stop' to stop a Time Machine backup.
 
-[Binary download](http://tedwi.se/u/dc)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.timemachine/time_machine.alfredworkflow)
 
 top-processes
 -------------
@@ -176,7 +203,7 @@ Based on the Parallels Control workflow. Provides a mechanism to control VMWare 
 - Keyword 'vm snapshot' requires a snapshot name and lists the running VMs. Selecting one creates a named snapshot of that VM.
 - Keyword 'vm revert' requires a snapshot name and lists the running VMs. Selecting one reverts to a named snapshot of that VM.
 
-[Binary download](http://tedwi.se/u/d4)
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.vmwarecontrol/vmware_control.alfredworkflow)
 
 volume-control
 --------------

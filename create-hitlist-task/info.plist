@@ -84,6 +84,70 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ta</string>
+				<key>subtext</key>
+				<string>Create a new HitList task</string>
+				<key>text</key>
+				<string>Create a HitList task</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3B911D1C-C6BF-4F3D-B25B-793F5F98AA34</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>osascript hitlist.scpt "{query}" &gt; /dev/null
+echo "{query}" | tr -d '\n'</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>34D243C3-C86B-4E57-A0E1-F9251A02586A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Task '{query}' was created</string>
+				<key>title</key>
+				<string>Task created</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>232C4EAF-36A0-44E9-952B-3B593A9B4078</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>escaping</key>
 				<integer>63</integer>
@@ -122,64 +186,8 @@ puts feedback.to_xml
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>712FBEE3-EDEE-4656-B917-96279DD7227A</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>ta</string>
-				<key>subtext</key>
-				<string>Create a new HitList task</string>
-				<key>text</key>
-				<string>Create a HitList task</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>3B911D1C-C6BF-4F3D-B25B-793F5F98AA34</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>osascript hitlist.scpt "{query}" &gt; /dev/null
-echo "{query}" | tr -d '\n'</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>34D243C3-C86B-4E57-A0E1-F9251A02586A</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>Task '{query}' was created</string>
-				<key>title</key>
-				<string>Task created</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>232C4EAF-36A0-44E9-952B-3B593A9B4078</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -195,44 +203,8 @@ echo "{query}" | tr -d '\n'</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>4A6FB639-B3F5-4157-9B8F-2DEE5D2433CD</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>osascript complete_task.scpt {query}</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>Task marked as completed</string>
-				<key>title</key>
-				<string>Task completed</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>0474EAAC-78A6-4B0A-BC51-DCA131F27387</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -256,10 +228,56 @@ echo "{query}" | tr -d '\n'</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>A7ECDA18-EE53-49E9-978E-90A99F66A750</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>osascript complete_task.scpt {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A80CD2E2-BEDD-49E0-A925-BFDEC833F042</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Task marked as completed</string>
+				<key>title</key>
+				<string>Task completed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0474EAAC-78A6-4B0A-BC51-DCA131F27387</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>To Do items use a special syntax:
+
+&lt;item description&gt; [%&lt;folder&gt;] [!&lt;priority&gt;] [#&lt;defect code&gt;] [|&lt;more description&gt;]</string>
 	<key>uidata</key>
 	<dict>
 		<key>0474EAAC-78A6-4B0A-BC51-DCA131F27387</key>

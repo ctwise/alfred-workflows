@@ -1,0 +1,44 @@
+{
+    "Base64 - decode": "openssl base64 -d",
+    "Base64 - encode": "openssl base64 -e",
+
+    "AES-256 - decrypt with passphrase 'X'": "openssl enc -d -base64 -aes256 -k X",
+    "AES-256 - encrypt with passphrase 'X'": "openssl enc -e -base64 -aes256 -k X",
+
+    "x509 - fingerprint": "openssl x509 -noout -fingerprint",
+    "x509 - hash": "openssl x509 -noout -hash",
+    "x509 - certificate information": "openssl x509 -text",
+
+    "Change case - lowercase": "perl -nle 'print lc'",
+    "Change case - uppercase": "perl -nle 'print uc'",
+    "Change case - capitalize": "ruby -ne 'print $_.split(%Q{ }).map(&:capitalize).join(%Q{ })'",
+    "Change case - title case": "perl scripts/titlecase.pl",
+
+    "JSON - format": "python -c \"import json,sys; print json.dumps(json.load(sys.stdin),indent=4,separators=(',',': '))\"",
+
+    "String - reverse": "sed '1!G;h;$!d'",
+    "String - format US phone number": "ruby scripts/format-us-phone.rb",
+
+    "Lines - clear bullets": "perl scripts/bulletlist.pl -c",
+    "Lines - sorted unique lines": "sort -u",
+    "Lines - number lines": "perl scripts/bulletlist.pl -n",
+    "Lines - bulletize": "perl scripts/bulletlist.pl",
+    "Lines - top 10 unique lines": "sort | uniq -c | sort -rn | head -10",
+    "Lines - remove blanks": "perl -ne 'print unless /^$/'",
+    "Lines - unique lines only": "perl -ne 'print unless $a{$_}++'",
+    "Lines - doublespace": "sed G",
+
+    "Markdown - convert search links to normal links": "ruby scripts/searchlink.rb",
+    "Markdown - convert to HTML": "php scripts/domd.php",
+
+    "Templated - expand numbering template": "ruby scripts/templated.rb",
+
+    "URL - encode": "perl -pe's/([^-_.~A-Za-z0-9])/sprintf(\"%%%02X\", ord($1))/seg'",
+    "URL - shorten": "xargs /Users/ctwise/bin/tinyurl -n",
+
+    "HTML - encode": "php -r \"echo htmlentities(file_get_contents('php://stdin'), ENT_COMPAT | ENT_HTML401, 'UTF-8');\"",
+
+    "Sort IPv4 addresses": "sort -n -t. -k1,1 -k2,2 -k3,3 -k4,4"
+}
+
+

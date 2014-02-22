@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.passwordgenerator</string>
+	<key>connections</key>
+	<dict>
+		<key>8E35538C-1DDF-4471-B29B-5979EE67673B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0DC79F12-8CC9-4DCD-A45B-BA9B824E054F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>19BC2F10-0AC4-4412-AD86-29084BA3F6AE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>DB475012-7B03-47BD-9C72-F7E8DC8F0A6F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E35538C-1DDF-4471-B29B-5979EE67673B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Generates passwords.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Password Phrase Generator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>max_length = "{query}"
+max_length = (max_length.length == 0 ? 28 : max_length.to_i) - 2
+password = `/Users/ctwise/bin/ppg #{max_length}`
+password = password.gsub(' ', '-').chomp
+password = "#{password}-#{rand(10).to_s}"
+password = password.slice(0,1).capitalize + password.slice(1..-1)
+puts password
+
+</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8E35538C-1DDF-4471-B29B-5979EE67673B</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>ppg</string>
+				<key>subtext</key>
+				<string>Generate a password. Provide an optional max length.</string>
+				<key>text</key>
+				<string>Password Generator</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>DB475012-7B03-47BD-9C72-F7E8DC8F0A6F</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Password copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0DC79F12-8CC9-4DCD-A45B-BA9B824E054F</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>19BC2F10-0AC4-4412-AD86-29084BA3F6AE</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0DC79F12-8CC9-4DCD-A45B-BA9B824E054F</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>19BC2F10-0AC4-4412-AD86-29084BA3F6AE</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>8E35538C-1DDF-4471-B29B-5979EE67673B</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>DB475012-7B03-47BD-9C72-F7E8DC8F0A6F</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

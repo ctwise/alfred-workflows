@@ -54,7 +54,7 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Inspect and control Time Machine (1.1)</string>
+	<string>Inspect and control Time Machine (1.2)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -87,7 +87,11 @@ end
 
 status_line = ""
 if status[:running] == 0
-  last_backup = DateTime.strptime((`defaults read /private/var/db/.TimeMachine.Results BACKUP_COMPLETED_DATE`.strip), "%Y-%m-%d %H:%M:%S %z").new_offset(DateTime.now.offset).strftime("%A %B %d, %Y %l:%M %P")
+  if File.exists?('/private/var/db/.TimeMachine.Results')
+    last_backup = DateTime.strptime((`defaults read /private/var/db/.TimeMachine.Results BACKUP_COMPLETED_DATE`.strip), "%Y-%m-%d %H:%M:%S %z").new_offset(DateTime.now.offset).strftime("%A %B %d, %Y %l:%M %P")
+  else
+    last_backup = `/usr/libexec/PlistBuddy -c "Print Destinations:0:SnapshotDates" /Library/Preferences/com.apple.TimeMachine.plist | tail -n 2 | head -n 1`.strip
+  end
 
   status_line = "Not Running - last backup #{last_backup}"
 elsif status[:stopping] == 1
@@ -112,6 +116,7 @@ puts &lt;&lt;ENDS_HERE
   &lt;/item&gt;
 &lt;/items&gt;
 ENDS_HERE
+
 </string>
 				<key>subtext</key>
 				<string>Show current Time Machine status</string>
@@ -126,6 +131,8 @@ ENDS_HERE
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>87F46482-9DD8-4445-8E34-8D0EC274414C</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -149,6 +156,8 @@ ENDS_HERE
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>C52DC423-7900-42BB-9F01-AC7B65248A54</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -164,6 +173,8 @@ ENDS_HERE
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>39CF375A-5FCB-459A-BA54-181A898DE4D8</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -183,6 +194,8 @@ ENDS_HERE
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>6EEC4466-725D-4675-A6AB-46842B1C2E4F</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -198,6 +211,8 @@ ENDS_HERE
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>2740EA0B-64D0-441C-927D-600AB8D8C33D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -217,6 +232,8 @@ ENDS_HERE
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>626A04CC-731A-4B0F-A4D4-6EB7ED650A9D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -240,6 +257,8 @@ ENDS_HERE
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>21CE57E5-DB0D-4B77-A965-5AD13B56356A</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>

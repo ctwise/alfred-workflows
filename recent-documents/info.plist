@@ -43,32 +43,8 @@
 			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
 			<string>A79237FA-710F-48A8-80A7-AF38CE03B539</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-    try
-  		tell application "Finder"
-    			set appname to name of application file id "com.cocoatech.PathFinder"
-  		end tell
-		tell application "Path Finder"			activate
-			select q		end tell
-	on error err_msg number err_num
-		tell application "Finder"
- 			reveal POSIX file q as text
-			activate
-		end tell
-	end try
-end alfred_script</string>
-				<key>cachescript</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -96,14 +72,40 @@ end alfred_script</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>AFDCA670-0F4B-4F9D-AE73-273DB3F147F4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+    try
+  		tell application "Finder"
+    			set appname to name of application file id "com.cocoatech.PathFinder"
+  		end tell
+		tell application "Path Finder"			activate
+			select q		end tell
+	on error err_msg number err_num
+		tell application "Finder"
+ 			reveal POSIX file q as text
+			activate
+		end tell
+	end try
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Based on the workflows by Clinton Strong and David Ferguson.
-
-You must install the ruby sqlite3 gem before this will work:
-
-	sudo gem install sqlite3</string>
+	<string>Based on the workflows by Clinton Strong and David Ferguson.</string>
 	<key>uidata</key>
 	<dict>
 		<key>A5E056F4-D3C5-47AB-9E6A-D523B98D879F</key>

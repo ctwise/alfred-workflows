@@ -164,10 +164,14 @@
 				<integer>4</integer>
 				<key>keyword</key>
 				<string>funnel</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
 				<key>script</key>
 				<string>ruby complete.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Selected text should already be on the clipboard</string>
 				<key>title</key>
-				<string>Funnel selected text through filter.</string>
+				<string>Funnel clipboard text through filter</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -225,23 +229,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array/>
-				<key>name</key>
-				<string>Funnel</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>34E9C945-9CA5-44F4-883C-27CBE9AAA8BA</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
@@ -254,6 +241,23 @@ osascript -e 'tell application "Alfred 2" to search "|f "'</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>7FF77F89-DF15-44A1-928D-F4BF0ADE1516</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<false/>
+				<key>filetypes</key>
+				<array/>
+				<key>name</key>
+				<string>Funnel</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>34E9C945-9CA5-44F4-883C-27CBE9AAA8BA</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>

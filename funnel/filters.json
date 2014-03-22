@@ -37,7 +37,8 @@
     "URL - shorten": "xargs /Users/ctwise/bin/tinyurl -n",
 
     "HTML - encode": "php -r \"echo htmlentities(file_get_contents('php://stdin'), ENT_COMPAT | ENT_HTML401, 'UTF-8');\"",
-
+    "HTML - decode": "php -r \"echo html_entity_decode(file_get_contents('php://stdin'), ENT_COMPAT | ENT_HTML401, 'UTF-8');\"",
+    
     "Sort IPv4 addresses": "sort -n -t. -k1,1 -k2,2 -k3,3 -k4,4"
 }
 

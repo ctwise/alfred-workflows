@@ -60,7 +60,7 @@ private
 	      end
 	    end
 	  end
-	  vmlist.values.find_all {|item| item.path.length > 0}
+	  vmlist.values.find_all {|item| item.path && item.path.length > 0}
 	end
 
 	def update_status(inventory)

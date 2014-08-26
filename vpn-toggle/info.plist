@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.rdp</string>
+	<key>connections</key>
+	<dict>
+		<key>89DFEA82-655D-4ED5-B86D-2506309ABEBD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>19428FFC-21DB-465A-8A78-8E6A67959A19</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Open server through Microsoft Remote Desktop</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Microsoft Remote Desktop</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>osascript open_rdp.scpt "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>19428FFC-21DB-465A-8A78-8E6A67959A19</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>rdp</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>ruby list_desktops.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Connect to a remote desktop</string>
+				<key>title</key>
+				<string>Open Remote Desktop Connection</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>89DFEA82-655D-4ED5-B86D-2506309ABEBD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>19428FFC-21DB-465A-8A78-8E6A67959A19</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>89DFEA82-655D-4ED5-B86D-2506309ABEBD</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

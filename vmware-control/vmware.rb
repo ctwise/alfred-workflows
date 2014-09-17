@@ -25,6 +25,13 @@ class VMWare
 	  add_info(update_status(inventory_list))
 	end
 
+	def mac_address(vm_path)
+		ip = ip_address(vm_path)
+		`ping -c 1 -t 1 #{ip}`
+		line = `arp -an | grep #{ip}`.strip
+		line.split(' ')[3]
+	end
+
 private
 	def ip_address(vm_path)
 	  `"#{VMRUN_PATH}" readVariable "#{vm_path}" guestVar ip`.strip

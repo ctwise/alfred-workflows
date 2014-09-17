@@ -40,6 +40,15 @@ def ip
   }
 end
 
+def mac
+  generate { |items, vm|
+    if vm.running?
+      mac_address = @vmware.mac_address(vm.path)
+      items.add_item({:uid => vm.path, :arg => mac_address, :title => "#{mac_address} - #{vm.name}", :subtitle => vm.path, :icon => {:name => vm.icon}})
+    end
+  }
+end
+
 def start(arg)
   arg = arg.nil? ? "nogui" : arg
   generate { |items, vm|
@@ -121,6 +130,8 @@ if ARGV.length > 0
       puts switch()
     when 'ip' then
       puts ip()
+    when 'mac' then
+      puts mac()
     when 'start' then
       puts start(param)
     when 'stop' then

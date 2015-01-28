@@ -59,9 +59,12 @@ module MenuItems
       if item[:shortcut].empty?
         name = item[:name]
       else
-        name = "#{item[:name]}      #{item[:shortcut]}"
+        name = "#{item[:name]}\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#{item[:shortcut]}"
       end
       feedback.add_item({:title => name, :arg => item[:line], :uid => "#{application}: #{item[:path]} > #{item[:name]}", :subtitle => "#{application}: #{item[:path]}", :icon => icon})
+    end
+    if found_items.length == 0
+      feedback.add_item({:title => 'No matching menu items found', :arg => ''})
     end
 
     feedback.to_xml

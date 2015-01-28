@@ -11,6 +11,6 @@ end
 
 search_term = ARGV[0].nil? ? "" : ARGV[0].downcase.encode('utf-8', 'utf-8-mac')
 
-if (search_term.length > 1)
+if (search_term.length > 0)
 	puts MenuItems.generate_xml(search_term, MenuItems.generate_items())
 end

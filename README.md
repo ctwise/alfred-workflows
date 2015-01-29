@@ -113,6 +113,13 @@ Generates password phrases (ala XKCD). You can optionally provide a max length. 
 
 [Binary download](http://tedwi.se/u/ee)
 
+rabbitmq
+--------
+
+Interface with local RabbitMQ server to get status of queues.
+
+[Binary download](https://github.com/packal/repository/raw/master/com.tedwise.rabbitmq/rabbitmq.alfredworkflow)
+
 recent-documents
 ----------------
 

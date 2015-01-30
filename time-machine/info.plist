@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.tedwise.timemachine</string>
+	<key>category</key>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>2740EA0B-64D0-441C-927D-600AB8D8C33D</key>
@@ -43,7 +45,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>6EEC4466-725D-4675-A6AB-46842B1C2E4F</string>
+				<string>39CF375A-5FCB-459A-BA54-181A898DE4D8</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -65,7 +67,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>626A04CC-731A-4B0F-A4D4-6EB7ED650A9D</string>
+				<string>2740EA0B-64D0-441C-927D-600AB8D8C33D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -76,7 +78,7 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Inspect and control Time Machine (1.3)</string>
+	<string>Inspect and control Time Machine (1.4)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -251,23 +253,6 @@ ENDS_HERE
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>script</key>
-				<string>tmutil stopbackup</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>2740EA0B-64D0-441C-927D-600AB8D8C33D</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string></string>
 				<key>argumenttype</key>
@@ -283,6 +268,23 @@ ENDS_HERE
 			<string>alfred.workflow.trigger.remote</string>
 			<key>uid</key>
 			<string>70223D2A-5353-41CE-A59E-DF839F5B06CE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>tmutil stopbackup</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2740EA0B-64D0-441C-927D-600AB8D8C33D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -360,7 +362,7 @@ ENDS_HERE
 		<key>6E3E76D9-A567-4005-9F0A-CE9660AD8CA1</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>80</real>
 		</dict>
 		<key>6EEC4466-725D-4675-A6AB-46842B1C2E4F</key>
 		<dict>
@@ -370,7 +372,7 @@ ENDS_HERE
 		<key>70223D2A-5353-41CE-A59E-DF839F5B06CE</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>200</real>
 		</dict>
 		<key>87F46482-9DD8-4445-8E34-8D0EC274414C</key>
 		<dict>

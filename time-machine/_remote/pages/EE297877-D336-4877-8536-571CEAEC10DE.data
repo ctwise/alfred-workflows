@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>iconid</key>
+	<string>F004F6E4-F73F-49EE-9E7F-348D7A9F45DE</string>
+	<key>iconisuserspecified</key>
+	<false/>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>autoworkflowuid</key>
+				<true/>
+				<key>triggerid</key>
+				<string>tmac.start</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runworkflow</string>
+			<key>buttoniconid</key>
+			<string>A26E9844-1265-4AAF-8F62-36A41E898E5C</string>
+			<key>buttonlabel</key>
+			<string>Start Time Machine</string>
+			<key>itemuid</key>
+			<string>E807A575-FBE3-43FB-A26C-7577296C5C44</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>autoworkflowuid</key>
+				<true/>
+				<key>triggerid</key>
+				<string>tmac.stop</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runworkflow</string>
+			<key>buttoniconid</key>
+			<string>11134312-CA5D-4553-863B-96482F9045AC</string>
+			<key>buttonlabel</key>
+			<string>Stop Time Machine</string>
+			<key>itemuid</key>
+			<string>E4199EBB-CEB2-46DD-A494-987EE2335E46</string>
+		</dict>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+	</array>
+	<key>subtitle</key>
+	<string>Start and stop Time Machine</string>
+	<key>title</key>
+	<string>Control Time Machine</string>
+</dict>
+</plist>

@@ -100,7 +100,9 @@
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>pbpaste | {query}</string>
+				<string>osascript -e 'tell application "System Events" to keystroke "c" using command down'
+sleep 0.3
+pbpaste | {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

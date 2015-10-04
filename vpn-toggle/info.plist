@@ -3,14 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.tedwise.rdp</string>
+	<string>com.tedwise.vpn</string>
 	<key>connections</key>
 	<dict>
-		<key>89DFEA82-655D-4ED5-B86D-2506309ABEBD</key>
+		<key>19B28345-5DFF-4BF0-86DF-BE5856FDCE78</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>19428FFC-21DB-465A-8A78-8E6A67959A19</string>
+				<string>D8674436-5203-4401-8629-63A652782F77</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>19B28345-5DFF-4BF0-86DF-BE5856FDCE78</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,27 +32,54 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Open server through Microsoft Remote Desktop</string>
+	<string>Control VPN connections</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Microsoft Remote Desktop</string>
+	<string>VPN Toggle</string>
 	<key>objects</key>
 	<array>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>VPN Toggle</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D8674436-5203-4401-8629-63A652782F77</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>102</integer>
 				<key>script</key>
-				<string>osascript open_rdp.scpt "{query}"</string>
+				<string>ruby toggle.rb "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>19428FFC-21DB-465A-8A78-8E6A67959A19</string>
+			<string>19B28345-5DFF-4BF0-86DF-BE5856FDCE78</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -51,17 +89,25 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>0</integer>
 				<key>keyword</key>
-				<string>rdp</string>
+				<string>vpn</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>ruby list_desktops.rb "{query}"</string>
+				<string>ruby vpn_list.rb</string>
 				<key>subtext</key>
-				<string>Connect to a remote desktop</string>
+				<string>Connect to or disconnect from VPN service</string>
 				<key>title</key>
-				<string>Open Remote Desktop Connection</string>
+				<string>Control VPN connections</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -70,7 +116,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>89DFEA82-655D-4ED5-B86D-2506309ABEBD</string>
+			<string>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -79,12 +125,17 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>19428FFC-21DB-465A-8A78-8E6A67959A19</key>
+		<key>19B28345-5DFF-4BF0-86DF-BE5856FDCE78</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
-		<key>89DFEA82-655D-4ED5-B86D-2506309ABEBD</key>
+		<key>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D8674436-5203-4401-8629-63A652782F77</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>

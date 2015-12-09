@@ -42,7 +42,7 @@ private
 	  unless File.exists?(inventory_path)
 	    inventory_path = File.expand_path(SHARED_INVENTORY_PATH)
 	  end
-	  inventory = File.open(inventory_path)
+	  inventory = File.open(inventory_path, "r:UTF-8")
 
 	  vmlist = {}
 	  inventory.each_line do |line|

@@ -8,7 +8,7 @@ output = `osascript get_recent_documents.scpt`
 
 rows = []
 
-output.split("\n").each_slice(2) do |lines|
+output.force_encoding("utf-8").split("\n").each_slice(2) do |lines|
 	rows << lines[1]
 end
 

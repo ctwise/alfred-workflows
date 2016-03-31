@@ -37,17 +37,18 @@ if xml_data.length > 0
 	   text = ele.elements['suggestion'].attributes['data']
      num_queries_elem = ele.elements['num_queries']
 	   count = num_queries_elem ? ele.elements['num_queries'].attributes['int'] : 0
-	   suggestions << {:text => text, :count => count}
+	   suggestions << {:text => text.encode('utf-8'), :count => count}
 	end
 end
 
-if suggestions.length == 0 || suggestions[0][:text].downcase != ARGV[0].downcase
-  suggestions.unshift({:text => ARGV[0], :count => "none"})
+user_input = ARGV[0].dup.force_encoding('utf-8')
+if suggestions.length == 0 || suggestions[0][:text].downcase != user_input.downcase
+  suggestions.unshift({:text => user_input, :count => 0})
 end
 
 feedback = Feedback.new
 suggestions.each do |suggestion|
-  count_str = suggestion[:count] == "none" ? "" : " (#{suggestion[:count]})"
+  count_str = suggestion[:count] == 0 ? "" : " (#{suggestion[:count]})"
   feedback.add_item({:uid => "suggest #{term}", :title => suggestion[:text], :subtitle => "Search Google for '#{suggestion[:text]}'#{count_str}", :arg => suggestion[:text]})
 end
 

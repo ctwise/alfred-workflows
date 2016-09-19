@@ -5,7 +5,7 @@ vpnlist = `osascript vpn_list.scpt`.lines.sort
 feedback = Feedback.new
 vpnlist.each do |entry|
 	(name, kind) = entry.chomp.split('|')
-	if kind == '0' || kind == '10' || kind == '11' || kind == '16'
+	if kind == '0' || kind == '10' || kind == '11' || kind == '13' || kind == '16'
 		description = "Connect to #{name}"
 		icon = "connect.png"
 		status = !system("scutil --nc show \"#{name}\" | grep Disconnected > /dev/null")

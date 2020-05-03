@@ -34,7 +34,7 @@ end
 
 feedback = Feedback.new
 if ARGV[0] == 'ip'
-	external_ip = `dig +short myip.opendns.com @resolver1.opendns.com`.strip
+	external_ip = `dig TXT -4 +short o-o.myaddr.l.google.com @ns1.google.com`.strip.tr('"', '')
 	feedback.add_item({:title => "External IP: #{external_ip}", :subtitle => 'Press Enter to paste, or Cmd+Enter to copy', :arg => external_ip})
 	ips.each do |interface|
 		ip = interface[:ip]

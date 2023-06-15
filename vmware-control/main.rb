@@ -50,7 +50,7 @@ def mac
 end
 
 def start(arg)
-  arg = arg.nil? ? "nogui" : arg
+  arg = arg.nil? ? "gui" : arg
   generate { |items, vm|
     unless vm.running?
       items.add_item({:uid => vm.path, :arg => "start \"#{vm.path}\" #{arg}", :title => "Start #{vm.name}", :subtitle => vm.path, :icon => {:name => vm.icon}})
